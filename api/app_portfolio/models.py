@@ -17,3 +17,9 @@ class Artwork(models.Model):
     collection = models.CharField(choices=ArtworkCollection.choices, blank=True, max_length=100)
     image = models.ImageField(upload_to='artwork_images/')
     created_at = models.DateTimeField(auto_now_add=True)
+
+    # define default manager
+    objects = models.Manager()
+
+    def __str__(self):
+        return str(self.title)
